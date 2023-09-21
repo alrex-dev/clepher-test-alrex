@@ -1,5 +1,5 @@
 # clepher-test-alrex
-Just a simple React Application as part of the Qualification Test for the company Clepher.
+A simple responsive React Application as part of the Qualification Test for the company Clepher.
 
 Technologies used:
 - `React`
