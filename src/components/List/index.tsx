@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {useState, useEffect} from 'react';
-import { Accordion, Button, Modal, Table } from 'react-bootstrap';
+import { Accordion, Button, Modal, Table, Spinner } from 'react-bootstrap';
 import moment from 'moment';
 
 import ListItem from '../ListItem/index.tsx';
@@ -11,6 +11,7 @@ function List() {
   const [equityData, setEquityData] = useState<any>([]);
   const [equityHeader, setEquityHeader] = useState<any>([]);
   const [show, setShow] = useState<boolean>(false);
+  const [spinnerClass, setSpinnerClass] = useState<string>('');
 
   const closeModal = () => setShow(false);
   const showModal = () => setShow(true);
@@ -21,6 +22,7 @@ function List() {
         if (typeof response.data['Meta Data'] !== 'undefined') {
             setEquityHeader(response.data['Meta Data']);
             setEquityData(response.data['Time Series (5min)']);
+            setSpinnerClass(' visually-hidden');
         }
       }).catch(error => {
         console.log(error);
@@ -56,7 +58,11 @@ function List() {
                                 <Button variant="primary" onClick={showModal}>Show More Information</Button>
                             </div>
                         </div>
-                        
+                        <div className={'row text-center mt-4 hide' + spinnerClass}>
+                            <Spinner animation="border" role="status" className="mx-auto">
+                                <span className="visually-hidden">Loading...</span>
+                            </Spinner>
+                        </div>
                     </div>
                 </div>
                 <div className="row">
