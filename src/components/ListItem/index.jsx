@@ -10,7 +10,7 @@ function ListItem({item, idx}) {
                 let label = listVal.slice( listVal.indexOf('.') + 2 );
 
                 return(
-                    <tr>
+                    <tr key={index}>
                         <th className="label-col">{label.charAt(0).toUpperCase() + label.slice(1)}</th>
                         <td>{item[listVal]}</td>
                     </tr>

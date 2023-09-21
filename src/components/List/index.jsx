@@ -48,11 +48,11 @@ function List() {
                 <div className="row mb-4">
                     <div className="av-data-header">
                         <div className="row">
-                            <div className="col-12 col-md-9">
+                            <div className="col-12 col-md-9 mb-3 mb-md-0">
                                 <h1>Equity Data from alphavantage.co</h1>
                                 {equityHeader['1. Information']}
                             </div>
-                            <div className="col-12 col-md-3 text-end">
+                            <div className="col-12 col-md-3 text-start text-md-end">
                                 <Button variant="primary" onClick={showModal}>Show More Information</Button>
                             </div>
                         </div>
@@ -69,7 +69,7 @@ function List() {
                                     <Accordion.Item eventKey={index}>
                                         <Accordion.Header><span className="item-counter">{(index + 1) + '.'}</span> {fDate}</Accordion.Header>
                                         <Accordion.Body>
-                                            <ListItem item={equityData[listVal]} idx={index} />
+                                            <ListItem key={index} item={equityData[listVal]} idx={index} />
                                         </Accordion.Body>
                                     </Accordion.Item>
                                 );

@@ -1,11 +1,16 @@
 .av-data-header {
     padding: 30px 50px !important;
     background-color: #fff;
-    border-radius: 5px;
 }
 
 .item-counter {
     display: inline-block;
     margin-right: 8px;
     color: #999;
+}
+
+@media (min-width: 768px) {
+    .av-data-header {
+        border-radius: 5px;
+    }
 }
