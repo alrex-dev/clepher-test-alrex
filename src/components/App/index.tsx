@@ -1,4 +1,4 @@
-import List from '../List';
+import List from '../List/index.tsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 

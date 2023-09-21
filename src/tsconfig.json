@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "jsx": "react-jsx",
+        "strict": true,
+        "noEmit": true,
+        "allowImportingTsExtensions": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "include": [
+        "./**/*"
+    ]
+}

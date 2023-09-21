@@ -1,16 +1,16 @@
 import axios from 'axios';
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import { Accordion, Button, Modal, Table } from 'react-bootstrap';
 import moment from 'moment';
 
-import ListItem from '../ListItem';
+import ListItem from '../ListItem/index.tsx';
 
 import './style.css';
 
 function List() {
-  const [equityData, setEquityData] = useState([]);
-  const [equityHeader, setEquityHeader] = useState([]);
-  const [show, setShow] = useState(false);
+  const [equityData, setEquityData] = useState<any>([]);
+  const [equityHeader, setEquityHeader] = useState<any>([]);
+  const [show, setShow] = useState<boolean>(false);
 
   const closeModal = () => setShow(false);
   const showModal = () => setShow(true);
@@ -62,11 +62,12 @@ function List() {
                 <div className="row">
                     <div className="col-12">
                         <Accordion defaultActiveKey="0">
-                            {Object.keys(equityData).map((listVal, index) => {
+                            {Object.keys(equityData).map((listVal: string, index: number) => {
                                 let fDate = moment(listVal).format('DD-MMM-YYYY HH:mm:ss');
+                                let eKey: string = index.toString();
 
                                 return(
-                                    <Accordion.Item eventKey={index}>
+                                    <Accordion.Item eventKey={eKey}>
                                         <Accordion.Header><span className="item-counter">{(index + 1) + '.'}</span> {fDate}</Accordion.Header>
                                         <Accordion.Body>
                                             <ListItem key={index} item={equityData[listVal]} idx={index} />

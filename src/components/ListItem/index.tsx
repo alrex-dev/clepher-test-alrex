@@ -2,11 +2,16 @@ import { Table } from 'react-bootstrap';
 
 import './style.css';
 
-function ListItem({item, idx}) {
+interface listItemProps {
+    item: any,
+    idx: number
+};
+
+function ListItem({item, idx}: listItemProps) {
   return (
     <Table striped="columns" bordered hover size="sm">
         <tbody>
-            {Object.keys(item).map((listVal, index) => {
+            {Object.keys(item).map((listVal: string, index: number) => {
                 let label = listVal.slice( listVal.indexOf('.') + 2 );
 
                 return(
